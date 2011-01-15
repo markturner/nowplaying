@@ -8,10 +8,7 @@ require 'rockstar'
 require 'json'
 require 'active_support'
 
-configure do  
-  # set last update time
-  @@last_updated = Time.now
-  
+configure do    
   # initialise api key
   Rockstar.lastfm = YAML.load_file('lastfm.yml')
 
