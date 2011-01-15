@@ -13,10 +13,10 @@ configure do
   Rockstar.lastfm = YAML.load_file('lastfm.yml')
 
   # get my user id
-  @@user = Rockstar::User.new('markturner')
+  user = Rockstar::User.new('markturner')
   
   # get albums
-  @@albums = @@user.weekly_album_chart
+  @@albums = user.weekly_album_chart
   
 end
 
