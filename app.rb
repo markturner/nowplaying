@@ -26,7 +26,8 @@ end
 get '/' do
   array = []
   
-  @@albums.each do |a|
+  # examine first 5 items (0..4)
+  @@albums[0..4].each do |a|
     # need to come up with a way of getting track count, as this has been removed from last.fm api!
     
     # pushes played albums to an array
