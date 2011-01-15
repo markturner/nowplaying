@@ -27,8 +27,6 @@ get '/' do
   array = []
   
   @@albums.each do |a|
-    info = a.load_info
-    
     # need to come up with a way of getting track count, as this has been removed from last.fm api!
     
     # pushes played albums to an array
@@ -36,8 +34,9 @@ get '/' do
       array << {
         :title => a.name,
         :artist => a.artist,
-        :url => info[:url],
-        :image_url => info[:image_url]
+        :play_count => a.playcount,
+        :url => a.load_info[:url],
+        :image_url => a.load_info[:image_url]
       }
     end
   end
