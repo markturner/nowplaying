@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/markturner/rockstar.git
+  revision: 973e0d4e81b6abea41010ff610f07afb0b7e5564
+  specs:
+    rockstar (0.5.0)
+      activesupport (>= 1.4.2)
+      hpricot (>= 0.4.86)
+
+GIT
   remote: git://github.com/sinatra/sinatra.git
   revision: a28ed5076caefd09711d2938da03f2fa105d6869
   specs:
@@ -9,9 +17,10 @@ GIT
 GEM
   remote: http://rubygems.org/
   specs:
-    compass (0.10.6)
-      haml (>= 3.0.4)
-    haml (3.0.22)
+    activesupport (3.0.3)
+    hpricot (0.8.3)
+    i18n (0.4.1)
+    json (1.4.6)
     rack (1.2.1)
     tilt (1.2.1)
 
@@ -19,6 +28,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activesupport
   bundler
-  compass
+  hpricot
+  i18n
+  json
+  rockstar!
   sinatra!
