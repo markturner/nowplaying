@@ -21,6 +21,8 @@ configure do
 end
 
 get '/' do
+  headers['Cache-Control'] = 'public, max-age=172800' # Cache for two days
+  
   array = []
   
   # examine first 5 items (0..4)
