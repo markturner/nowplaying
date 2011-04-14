@@ -6,7 +6,6 @@ require 'sinatra'
 require 'hpricot'
 require 'rockstar'
 require 'json'
-require 'active_support'
 
 configure do    
   # initialise api key
@@ -25,18 +24,19 @@ get '/' do
   
   array = []
   
-  # examine first 5 items (0..4)
-  @@albums[0..4].each do |a|
-    # need to come up with a way of getting track count, as this has been removed from last.fm api!
+  @@albums.each do |a|
+    # write load_info result to local variable to prevent repeated api calls
+    info = a.load_info
     
     # pushes played albums to an array
-    if a.playcount.to_i >= 7
+    if a.playcount.to_i >= info[:track_count] - 3 && a.playcount.to_i >=3
       array << {
         :title => a.name,
         :artist => a.artist,
+        :track_count => info[:track_count],
         :play_count => a.playcount,
-        :url => a.load_info[:url],
-        :image_url => a.load_info[:image_url]
+        :url => info[:url],
+        :image_url => info[:large_image_url]
       }
     end
   end
